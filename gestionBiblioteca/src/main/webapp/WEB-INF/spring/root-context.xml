@@ -2,7 +2,30 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-	
+
 	<!-- Root Context: defines shared resources visible to all other web components -->
-		
+	<!-- Inyectamos el archivo de properties de la BB.DD. -->
+	<bean name="databaseProperties"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="classpath:/database.properties" />
+	</bean>
+	<!-- Inyectamos la BB.DD. en el proyecto -->
+	<bean name="mysqlDataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${mysql.driver}" />
+		<property name="url" value="${mysql.url}" />
+		<property name="username" value="${mysql.user}" />
+		<property name="password" value="${mysql.pass}" />
+	</bean>
+
+	<!-- Inyectamos la BB.DD. en las clases DAO -->
+	<bean id="usuarioDAOImp" class="com.ipartek.formacion.dao.UsuarioDAOImp">
+		<property name="dataSource" ref="mysqlDataSource" />
+	</bean>
+	<bean id="ejemplarDAOImp" class="com.ipartek.formacion.dao.EjemplarDAOImp">
+		<property name="dataSource" ref="mysqlDataSource" />
+	</bean>
+	<bean id="libroDAOImp" class="com.ipartek.formacion.dao.LibroDAOImp">
+		<property name="dataSource" ref="mysqlDataSource" />
+	</bean>
 </beans>
