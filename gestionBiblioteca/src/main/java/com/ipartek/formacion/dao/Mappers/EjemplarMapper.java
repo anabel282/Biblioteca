@@ -7,7 +7,7 @@ import org.springframework.jdbc.core.RowMapper;
 
 import com.ipartek.formacion.dao.persistencia.Ejemplar;
 
-public class EjemplaMapper implements RowMapper<Ejemplar> {
+public class EjemplarMapper implements RowMapper<Ejemplar> {
 
   @Override
   public Ejemplar mapRow(ResultSet rs, int arg1) throws SQLException {

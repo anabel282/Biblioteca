@@ -4,5 +4,5 @@ import javax.sql.DataSource;
 
 public interface SetterDS {
 
-  public void SetterDataSource(DataSource dataSource);
+  public void setDataSource(DataSource dataSource);
 }

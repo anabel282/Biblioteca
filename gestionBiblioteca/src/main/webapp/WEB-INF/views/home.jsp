@@ -1,14 +1,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
-<html>
-<head>
-	<title>Home</title>
-</head>
-<body>
-<h1>
-	Hello world!  
-</h1>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<jsp:include page="includes/header.jsp"/>
 
-<P>  The time on the server is ${serverTime}. </P>
-</body>
-</html>
+<h1 class="text-center">AQUI IRA EL LOGIN</h1>
+
+<jsp:include page="includes/header.jsp"/>
