@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.ipartek.formacion.dao.Mappers.LibroMapper;
 import com.ipartek.formacion.dao.interfaces.LibroDAO;
 import com.ipartek.formacion.dao.persistencia.Libro;
 
@@ -52,14 +53,18 @@ public class LibroDAOImp implements LibroDAO {
 
   @Override
   public Libro getById(int id) {
-    // TODO Auto-generated method stub
-    return null;
+
+    String SQL = "SELECT codigo, titulo, nombreApellidos, ISBN FROM libro WHERE codigo=?";
+    Libro libro = this.jdbcTemplate.queryForObject(SQL, new Object[] { id }, new LibroMapper());
+    return libro;
   }
 
   @Override
   public List<Libro> getAll() {
-    // TODO Auto-generated method stub
-    return null;
+
+    String SQL = "SELECT codigo, titulo, nombreApellidos, ISBN FROM libro";
+    List<Libro> libros = this.jdbcTemplate.query(SQL, new LibroMapper());
+    return libros;
   }
 
 }

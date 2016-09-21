@@ -15,7 +15,6 @@
 <link rel="stylesheet" href="${bootstrapCSS}" />
 <link rel="stylesheet" href="${font}" />
 <link rel="stylesheet" href="${style}" />
-<!-- Primero hay que cargar las librerias de JQUERY y posteriormente las de bootstrap -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript" src="${jsBootstrap}"></script>
@@ -30,13 +29,14 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href='<c:url value="/"/>'>Inicio</a>
+			<a class="navbar-brand active" href='<c:url value="/"/>'>Inicio</a>
 		</div>
 		<div class="collapse navbar-collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav">
-				<li><a href='<c:url value="/libro/"/>'>Listado de libros</a></li>
-				<li class="active"><a href='<c:url value="/ejemplar/"/>'>Listado
-						de ejemplares</a></li>
+				<li class="active"><a href='<c:url value="/libro/"/>'>Listado
+						de libros</a></li>
+				<li><a href='<c:url value="/ejemplar/"/>'>Listado de
+						ejemplares</a></li>
 				<li class="dropdown"><a href='<c:url value="/usuario/"/>'
 					class="dropdown-toggle" data-toggle="dropdown">Usuarios<b
 						class="caret"></b>
@@ -59,47 +59,46 @@
 	</div>
 
 
+
 	<main> 
 	<div class="row">
 		<div class="col-xs-12 col-ms-12 col-lg-12">
 			<a class="btn btn-success pull-right"
-				href='<c:url value="updateCreate"/>'>Registrar ejemplares</a>
+				href='<c:url value="createUpdate"/>'>Registrar libros</a>
 		</div>
 	</div>
-	<c:if test="${!empty ejemplares}">
-		<c:forEach var="ejemplar" items="${ejemplares}">
+	<c:if test="${!empty libros}">
+		<c:forEach var="libro" items="${libros}">
 			<div class="row">
-				<div>
-					<div class="col-xs-8 col-lg-8 col-ms-8">
+				<div class="col-xs-12 col-ms-12 col-lg-12">
+					<div class="col-xs-8 col-ms-8 col-lg-8">
 						<p>
-							Editorial:
-							<c:out value="${ejemplar.editorial}" />
+							Titulo:
+							<c:out value="${libro.titulo}" />
 						</p>
 						<p>
-							Nº Páginas:
-							<c:out value="${ejemplar.nPaginas}" />
+							Autor:
+							<c:out value="${libro.nombreApellidos}" />
+						</p>
+						<p>
+							ISBN:
+							<c:out value="${libro.ISBN}" />
 						</p>
 					</div>
-					<div class="col-xs-2 col-lg-2 col-ms-2">
-						<a class="btn btn-warning" href="ejemplar/${ejemplar.codigo}">Modificar
-							ejemplar</a>
+					<div class="col-xs-2 col-ms-2 col-lg-2">
+						<a class="btn btn-warning" href="libros/${libro.codigo}">Modificar
+							libro</a>
 					</div>
-					<div class="col-xs-2 col-lg-2 col-ms-2">
-						<a class="btn btn-danger" href="ejemplar/${ejemplar.codigo}">Borrar
-							ejemplar</a>
+					<div class="col-xs-2 col-ms-2 col-lg-2">
+						<a class="btn btn-danger" href="libro/${libro.codigo}">Borrar
+							libro</a>
 					</div>
 				</div>
 			</div>
 		</c:forEach>
-	</c:if>
-	<div class="row">
-		<div class="col-xs-12 col-lg-12 col-ms-12">
-			<c:if test="${empty ejemplares}">
-				<h3>No hay ejemplares registrados</h3>
-			</c:if>
-		</div>
-	</div>
-	</main>
+	</c:if> <c:if test="${empty libros}">
+		<h3>No hay ejemplares registrados</h3>
+	</c:if> </main>
 	<footer>
 		<div class="row">
 			<div class="col-xs-12 col-ms-12 col-lg-12">

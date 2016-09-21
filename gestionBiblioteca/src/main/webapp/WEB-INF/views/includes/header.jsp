@@ -2,11 +2,11 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<c:set var="bootstrapCSS" value="resources/css/bootstrap.min.css" />
-<c:set var="font" value="resources/css/font-awesome.min.css" />
-<c:set var="style" value="resources/css/styles.css" />
-<c:set var="jsBootstrap" value="resources/js/bootstrap.min.js" />
+<%@ taglib prefix="tag" uri="http://www.springframework.org/tags"%>
+<tag:url var="bootstrapCSS" value="/resources/css/bootstrap.min.css"/>
+<tag:url var="font" value="/resources/css/font-awesome.min.css"/>
+<tag:url var="style" value="/resources/css/styles.css"/>
+<tag:url var="jsBootstrap" value="/resources/js/bootstrap.min.js"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,6 +35,8 @@
 			<ul class="nav navbar-nav">
 				<li><a href='<c:url value="/libro/listado"/>'>Listado de
 						libros</a></li>
+						<li><a href='<c:url value="/ejemplar/listado"/>'>Listado de
+						ejemplares</a></li>
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown">Usuarios<b class="caret"></b>
 				</a>

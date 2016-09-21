@@ -15,10 +15,10 @@
 <link rel="stylesheet" href="${bootstrapCSS}" />
 <link rel="stylesheet" href="${font}" />
 <link rel="stylesheet" href="${style}" />
-<!-- Primero hay que cargar las librerias de JQUERY y posteriormente las de bootstrap -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript" src="${jsBootstrap}"></script>
+
 </head>
 <body class="container-fluid">
 	<nav role="navigation" class="nav navbar-inverse">
@@ -30,21 +30,21 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href='<c:url value="/"/>'>Inicio</a>
+			<a class="navbar-brand active" href='<c:url value="/"/>'>Inicio</a>
 		</div>
 		<div class="collapse navbar-collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav">
 				<li><a href='<c:url value="/libro/"/>'>Listado de libros</a></li>
-				<li class="active"><a href='<c:url value="/ejemplar/"/>'>Listado
-						de ejemplares</a></li>
+				<li><a href='<c:url value="/ejemplar/"/>'>Listado de
+						ejemplares</a></li>
 				<li class="dropdown"><a href='<c:url value="/usuario/"/>'
 					class="dropdown-toggle" data-toggle="dropdown">Usuarios<b
 						class="caret"></b>
 				</a>
 					<ul class="dropdown-menu">
 						<li class="divider"></li>
-						<li><a href='<c:url value="/usuario/"/>'>Listado de
-								usuarios</a></li>
+						<li class="active"><a href='<c:url value="/usuario/"/>'>Listado
+								de usuarios</a></li>
 						<li class="divider"></li>
 						<li><a href="#">Devolver libro</a></li>
 						<li class="divider"></li>
@@ -59,34 +59,42 @@
 	</div>
 
 
-	<main> 
+	<main>
 	<div class="row">
 		<div class="col-xs-12 col-ms-12 col-lg-12">
 			<a class="btn btn-success pull-right"
-				href='<c:url value="updateCreate"/>'>Registrar ejemplares</a>
+				href='<c:url value="createUpdate"/>'>Registrar usuario</a>
 		</div>
 	</div>
-	<c:if test="${!empty ejemplares}">
-		<c:forEach var="ejemplar" items="${ejemplares}">
+	<c:if test="${!empty usuarios}">
+		<c:forEach var="usuario" items="${usuarios}">
 			<div class="row">
 				<div>
 					<div class="col-xs-8 col-lg-8 col-ms-8">
 						<p>
-							Editorial:
-							<c:out value="${ejemplar.editorial}" />
+							Nombre:
+							<c:out value="${usuario.nombre}" />
 						</p>
 						<p>
-							Nº Páginas:
-							<c:out value="${ejemplar.nPaginas}" />
+							Apellidos:
+							<c:out value="${usuario.apellidos}" />
+						</p>
+						<p>
+							Fecha Nacimiento:
+							<c:out value="${usuario.fNacimiento}" />
+						</p>
+						<p>
+							Email:
+							<c:out value="${usuario.email}" />
 						</p>
 					</div>
 					<div class="col-xs-2 col-lg-2 col-ms-2">
-						<a class="btn btn-warning" href="ejemplar/${ejemplar.codigo}">Modificar
-							ejemplar</a>
+						<a class="btn btn-warning" href="usuario/${usuario.codigo}">Modificar
+							usuario</a>
 					</div>
 					<div class="col-xs-2 col-lg-2 col-ms-2">
-						<a class="btn btn-danger" href="ejemplar/${ejemplar.codigo}">Borrar
-							ejemplar</a>
+						<a class="btn btn-danger" href="usuario/${usuario.codigo}">Borrar
+							usuario</a>
 					</div>
 				</div>
 			</div>
@@ -94,8 +102,8 @@
 	</c:if>
 	<div class="row">
 		<div class="col-xs-12 col-lg-12 col-ms-12">
-			<c:if test="${empty ejemplares}">
-				<h3>No hay ejemplares registrados</h3>
+			<c:if test="${empty usuarios}">
+				<h3>No hay usuarios registrados</h3>
 			</c:if>
 		</div>
 	</div>

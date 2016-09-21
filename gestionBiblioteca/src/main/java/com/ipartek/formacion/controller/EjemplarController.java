@@ -27,7 +27,7 @@ public class EjemplarController {
     return "redirect:/ejemplar";
   }
 
-  @RequestMapping(method = RequestMethod.GET)
+  @RequestMapping(value = "/{id}", method = RequestMethod.GET)
   public ModelAndView getById(@PathVariable("id") int id) {
     this.mav = new ModelAndView("ejemplar/ejemplar");
     Ejemplar ejemplar = this.eService.getById(id);
@@ -35,7 +35,7 @@ public class EjemplarController {
     return this.mav;
   }
 
-  @RequestMapping(value = "/listado", method = RequestMethod.GET)
+  @RequestMapping(method = RequestMethod.GET)
   public ModelAndView getAll() {
     this.mav = new ModelAndView("ejemplar/listado");
     List<Ejemplar> ejemplars = this.eService.getAll();
@@ -43,11 +43,11 @@ public class EjemplarController {
     return this.mav;
   }
 
-  @RequestMapping(value = "updateCreate", method = RequestMethod.POST)
+  @RequestMapping(value = "updateCreate", method = RequestMethod.GET)
   public String updateCreate(Model model) {
 
     model.addAttribute(new Ejemplar());
-    return "redirect:/saveEjemplar";
+    return "ejemplar/ejemplar";
   }
 
   @RequestMapping(value = "saveEjemplar", method = RequestMethod.POST)

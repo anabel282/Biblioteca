@@ -39,14 +39,14 @@ public class LibroController {
   public ModelAndView getAll() {
     this.mav = new ModelAndView("libro/listado");
     List<Libro> libros = this.libroService.getAll();
-    this.mav.addObject("listado-libros", libros);
+    this.mav.addObject("libros", libros);
     return this.mav;
   }
 
-  @RequestMapping(value = "/createUpdate", method = RequestMethod.POST)
+  @RequestMapping(value = "/createUpdate", method = RequestMethod.GET)
   public String createUpdate(Model model) {
     model.addAttribute(new Libro());
-    return "redirect:/saveLibro";
+    return "libro/libro";
   }
 
   @RequestMapping(value = "/saveLibro", method = RequestMethod.POST)

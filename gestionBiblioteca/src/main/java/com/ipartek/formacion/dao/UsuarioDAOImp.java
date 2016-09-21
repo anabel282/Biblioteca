@@ -56,7 +56,7 @@ public class UsuarioDAOImp implements UsuarioDAO {
   @Override
   public Usuario getById(int id) {
 
-    String SQL = "SELECT nombre, apellidos, fNacimiento, email, pass FROM usuario WHERE codigo=? ";
+    String SQL = "SELECT codigo, nombre, apellidos, fNacimiento, email, pass FROM usuario WHERE codigo=? ";
     Usuario usuario = this.jdbcTemplate.queryForObject(SQL, new Object[] { id },
         new UsuarioMapper());
     return usuario;
@@ -65,7 +65,7 @@ public class UsuarioDAOImp implements UsuarioDAO {
   @Override
   public List<Usuario> getAll() {
 
-    String SQL = "SELECT nombre, apellidos, fNacimiento, email, pass FROM usuario";
+    String SQL = "SELECT codigo, nombre, apellidos, fNacimiento, email, pass FROM usuario";
     List<Usuario> usuarios = this.jdbcTemplate.query(SQL, new UsuarioMapper());
     return usuarios;
   }

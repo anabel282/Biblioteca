@@ -13,6 +13,9 @@ import org.springframework.web.servlet.ModelAndView;
 import com.ipartek.formacion.dao.persistencia.Usuario;
 import com.ipartek.formacion.service.interfaces.UsuarioService;
 
+/*
+ * TODOS LOS BOTONES O ENLACES SON GET
+ */
 @Controller
 @RequestMapping("/usuario")
 public class UsuarioController {
@@ -36,21 +39,21 @@ public class UsuarioController {
     return this.mav;
   }
 
-  @RequestMapping(value = "listado", method = RequestMethod.GET)
+  @RequestMapping(method = RequestMethod.GET)
   public ModelAndView getAll() {
     this.mav = new ModelAndView("usuario/listado");
     List<Usuario> usuarios = this.uService.getAll();
-    this.mav.addObject("lista-usuarios", usuarios);
+    this.mav.addObject("usuarios", usuarios);
     return this.mav;
   }
 
-  @RequestMapping(value = "/")
+  @RequestMapping(value = "/createUpdate", method = RequestMethod.GET)
   public String createUpdate(Model model) {
     model.addAttribute(new Usuario());
-    return "redirect:/saveUsuario";
+    return "usuario/usuario";
   }
 
-  @RequestMapping(value = "/saveUsuario")
+  @RequestMapping(value = "/saveUsuario", method = RequestMethod.POST)
   public String saveUsuario(Usuario usuario) {
     if (usuario.getCodigo() > 0) {
       this.uService.update(usuario);
