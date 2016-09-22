@@ -89,11 +89,11 @@
 						</p>
 					</div>
 					<div class="col-xs-2 col-lg-2 col-ms-2">
-						<a class="btn btn-warning" href="usuario/${usuario.codigo}">Modificar
+						<a class="btn btn-warning" href="${usuario.codigo}">Modificar
 							usuario</a>
 					</div>
 					<div class="col-xs-2 col-lg-2 col-ms-2">
-						<a class="btn btn-danger" href="usuario/${usuario.codigo}">Borrar
+						<a class="btn btn-danger" href="delete/${usuario.codigo}">Borrar
 							usuario</a>
 					</div>
 				</div>

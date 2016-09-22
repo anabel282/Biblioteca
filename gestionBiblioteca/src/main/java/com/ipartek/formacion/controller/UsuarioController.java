@@ -5,6 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,10 +27,10 @@ public class UsuarioController {
   private UsuarioService uService;
   private ModelAndView mav;
 
-  @RequestMapping(value = "/{id}", method = { RequestMethod.DELETE, RequestMethod.POST })
+  @RequestMapping(value = "delete/{id}", method = { RequestMethod.GET })
   public String delete(@PathVariable("id") int id) {
     this.uService.delete(id);
-    return "redirect:/usuario";
+    return "redirect:/usuario/";
   }
 
   @RequestMapping(value = "/{id}", method = { RequestMethod.GET })
@@ -53,14 +56,29 @@ public class UsuarioController {
     return "usuario/usuario";
   }
 
+  /*
+   * Ponemos el modelAttribute para indicarle que del formulario vamos a recibir un OBJETO, al
+   * contrario que con el PathVariable que lo que vamos a exploner es que mandamos un dato primario
+   */
   @RequestMapping(value = "/saveUsuario", method = RequestMethod.POST)
-  public String saveUsuario(Usuario usuario) {
-    if (usuario.getCodigo() > 0) {
-      this.uService.update(usuario);
+  public String saveUsuario(@ModelAttribute("usuario") @Validated Usuario usuario,
+      BindingResult bindingResult) {
+
+    String resultado = null;
+
+    if (bindingResult.hasErrors()) {
+      resultado = "usuario/usuario";
     } else {
-      this.uService.create(usuario);
+      if (usuario.getCodigo() > 0) {
+        resultado = "redirect:/usuario/";
+        this.uService.update(usuario);
+      } else {
+        resultado = "redirect:/usuario/";
+        this.uService.create(usuario);
+      }
     }
-    return "redirect:/usuario";
+
+    return resultado;
 
   }
 }

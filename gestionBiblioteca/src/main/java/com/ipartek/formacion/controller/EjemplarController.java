@@ -2,9 +2,13 @@ package com.ipartek.formacion.controller;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,11 +24,16 @@ public class EjemplarController {
   @Autowired
   private EjemplarService eService;
   private ModelAndView mav;
+  private Logger log;
 
-  @RequestMapping(value = "/{id}", method = { RequestMethod.DELETE, RequestMethod.POST })
+  /*
+   * El requestMethod.DELETE solo se va a dar al borrar. LOS BOTONES SIEMPRE VAN POR GET, si
+   * queremos que sea por POST tiene que ser un formulario
+   */
+  @RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
   public String delete(@PathVariable("id") int id) {
     this.eService.delete(id);
-    return "redirect:/ejemplar";
+    return "redirect:/ejemplar/";
   }
 
   @RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -51,12 +60,24 @@ public class EjemplarController {
   }
 
   @RequestMapping(value = "saveEjemplar", method = RequestMethod.POST)
-  public String saveEjemplar(Ejemplar ejemplar) {
-    if (ejemplar.getCodigo() > 0) {
-      this.eService.update(ejemplar);
+  public String saveEjemplar(@ModelAttribute("ejemplar") @Validated Ejemplar ejemplar,
+      BindingResult bindingResult) {
+
+    String resultado = null;
+
+    if (bindingResult.hasErrors()) {
+      resultado = "ejemplar/ejemplar";
+      // log.info("Error al introducir el ejemplar");
     } else {
-      this.eService.create(ejemplar);
+      if (ejemplar.getCodigo() > 0) {
+        this.eService.update(ejemplar);
+        resultado = "redirect:/ejemplar/";
+      } else {
+        this.eService.create(ejemplar);
+        resultado = "redirect:/ejemplar/";
+      }
     }
-    return "redirect:/ejemplar";
+
+    return resultado;
   }
 }

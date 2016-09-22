@@ -96,7 +96,7 @@
 						<form:label path="nombreApellidos">
 							<tag:message text="Autor: " />
 						</form:label>
-						<form:input path="nombreApellidos" cssClass="" cssErrorClass="" />
+						<form:input path="nombreApellidos" cssClass="" cssErrorClass="formError" />
 						<form:errors cssClass=""></form:errors>
 					</div>
 				</div>

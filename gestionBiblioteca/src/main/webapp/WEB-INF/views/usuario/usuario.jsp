@@ -131,13 +131,13 @@
 					<c:if test="${usuario.codigo > 0}">
 						<div class="col-xs-2 col-ms-2 col-lg-2">
 							<input class="btn btn-success" type="submit"
-								value='<tag:message text="Modificar ejemplar"/>'>
+								value='<tag:message text="Modificar usuario"/>'>
 						</div>
 					</c:if>
 					<c:if test="${usuario.codigo < 0}">
 						<div class="col-xs-2 col-ms-2 col-lg-2">
 							<input class="btn btn-success" type="submit"
-								value='<tag:message text="Crear ejemplar"/>'>
+								value='<tag:message text="Crear usuario"/>'>
 						</div>
 					</c:if>
 				</div>

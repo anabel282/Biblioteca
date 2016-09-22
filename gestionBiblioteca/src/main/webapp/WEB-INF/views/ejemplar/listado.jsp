@@ -81,11 +81,11 @@
 						</p>
 					</div>
 					<div class="col-xs-2 col-lg-2 col-ms-2">
-						<a class="btn btn-warning" href="ejemplar/${ejemplar.codigo}">Modificar
+						<a class="btn btn-warning" href="${ejemplar.codigo}">Modificar
 							ejemplar</a>
 					</div>
 					<div class="col-xs-2 col-lg-2 col-ms-2">
-						<a class="btn btn-danger" href="ejemplar/${ejemplar.codigo}">Borrar
+						<a class="btn btn-danger" href="delete/${ejemplar.codigo}">Borrar
 							ejemplar</a>
 					</div>
 				</div>

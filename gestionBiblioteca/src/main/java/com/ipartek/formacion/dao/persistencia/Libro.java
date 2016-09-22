@@ -1,9 +1,12 @@
 package com.ipartek.formacion.dao.persistencia;
 
+import javax.validation.constraints.Size;
+
 public class Libro {
 
   private int codigo;
   private String titulo;
+  @Size(min = 5, message = "El autor tiene que tener minimo 5 caracteres")
   private String nombreApellidos;
   private String ISBN;
 
