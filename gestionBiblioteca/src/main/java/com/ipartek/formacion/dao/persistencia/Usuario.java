@@ -4,69 +4,80 @@ import java.util.Date;
 
 public class Usuario {
 
-  private int codigo;
-  private String nombre;
-  private String apellidos;
-  private Date fNacimiento;
-  private String pass;
-  private String email;
+	private int codigo;
+	private String nombre;
+	private String apellidos;
+	private Date fNacimiento;
+	private String pass;
+	private String email;
+	private int idEjemplar;
 
-  public Usuario() {
+	public Usuario() {
 
-    this.setApellidos("");
-    this.setCodigo(-1);
-    this.setEmail("");
-    this.setNombre("");
-    this.setPass("");
-    this.setfNacimiento(null);
-  }
+		this.setApellidos("");
+		this.setCodigo(-1);
+		this.setEmail("");
+		this.setNombre("");
+		this.setPass("");
+		this.setfNacimiento(null);
+		this.setIdEjemplar(-1);
 
-  public int getCodigo() {
-    return codigo;
-  }
+	}
 
-  public void setCodigo(int codigo) {
-    this.codigo = codigo;
-  }
+	public int getIdEjemplar() {
+		return idEjemplar;
+	}
 
-  public String getNombre() {
-    return nombre;
-  }
+	public void setIdEjemplar(int idEjemplar) {
+		this.idEjemplar = idEjemplar;
+	}
 
-  public void setNombre(String nombre) {
-    this.nombre = nombre;
-  }
+	public int getCodigo() {
+		return codigo;
+	}
 
-  public String getApellidos() {
-    return apellidos;
-  }
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
 
-  public void setApellidos(String apellidos) {
-    this.apellidos = apellidos;
-  }
+	public String getNombre() {
+		return nombre;
+	}
 
-  public Date getfNacimiento() {
-    return fNacimiento;
-  }
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 
-  public void setfNacimiento(Date fNacimiento) {
-    this.fNacimiento = fNacimiento;
-  }
+	public String getApellidos() {
+		return apellidos;
+	}
 
-  public String getPass() {
-    return pass;
-  }
+	public void setApellidos(String apellidos) {
+		this.apellidos = apellidos;
+	}
 
-  public void setPass(String pass) {
-    this.pass = pass;
-  }
+	public Date getfNacimiento() {
+		return fNacimiento;
+	}
 
-  public String getEmail() {
-    return email;
-  }
+	public void setfNacimiento(Date fNacimiento) {
+		this.fNacimiento = fNacimiento;
+	}
 
-  public void setEmail(String email) {
-    this.email = email;
-  }
+	public String getPass() {
+		return pass;
+	}
+
+	public void setPass(String pass) {
+		this.pass = pass;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
 }

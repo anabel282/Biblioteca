@@ -79,6 +79,10 @@
 							Nº Páginas:
 							<c:out value="${ejemplar.nPaginas}" />
 						</p>
+						<p>
+							Disponibles:
+							<c:out value="${ejemplar.disponible}" />
+						</p>
 					</div>
 					<div class="col-xs-2 col-lg-2 col-ms-2">
 						<a class="btn btn-warning" href="${ejemplar.codigo}">Modificar
