@@ -13,9 +13,10 @@ public class EjemplarValidator implements Validator {
   }
 
   @Override
-  public void validate(Object target, Errors errors) {
+  public void validate(Object object, Errors errors) {
 
-    Ejemplar ejemplar = (Ejemplar) target;
+    System.out.println("Entra en el validador");
+    Ejemplar ejemplar = (Ejemplar) object;
     if (ejemplar.getnPaginas() < 5) {
       errors.rejectValue("nPaginas", "ValorInvalido", new Object[] { "'nPaginas'" },
           "El numero de paginas tiene que ser mayor de 5 paginas");

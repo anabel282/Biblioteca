@@ -3,10 +3,14 @@ package com.ipartek.formacion.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.Validator;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,6 +30,14 @@ public class UsuarioController {
   @Autowired
   private UsuarioService uService;
   private ModelAndView mav;
+
+  @Qualifier("UsuarioValidator")
+  private Validator validator;
+
+  @InitBinder
+  private void initBinder(WebDataBinder binder) {
+    binder.setValidator(validator);
+  }
 
   @RequestMapping(value = "delete/{id}", method = { RequestMethod.GET })
   public String delete(@PathVariable("id") int id) {

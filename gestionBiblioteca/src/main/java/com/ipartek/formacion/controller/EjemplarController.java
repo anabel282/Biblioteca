@@ -2,12 +2,15 @@ package com.ipartek.formacion.controller;
 
 import java.util.List;
 
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.Validator;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,10 +24,18 @@ import com.ipartek.formacion.service.interfaces.EjemplarService;
 @RequestMapping("/ejemplar")
 public class EjemplarController {
 
+  // private final static Logger log = new LoggerFactory.getLogger(EjemplarController.class);
   @Autowired
   private EjemplarService eService;
   private ModelAndView mav;
-  private Logger log;
+
+  @Qualifier("EjemplarValidator")
+  private Validator validator;
+
+  @InitBinder
+  private void initBinder(WebDataBinder binder) {
+    binder.setValidator(validator);
+  }
 
   /*
    * El requestMethod.DELETE solo se va a dar al borrar. LOS BOTONES SIEMPRE VAN POR GET, si
