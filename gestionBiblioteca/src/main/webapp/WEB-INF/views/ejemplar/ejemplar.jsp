@@ -88,7 +88,7 @@
 							<tag:message text="Editorial: " />
 						</form:label>
 						<form:input path="editorial" cssErrorClass="" cssClass="" />
-						<form:errors cssClass=""></form:errors>
+						<form:errors path="editorial" cssClass=""></form:errors>
 					</div>
 				</div>
 				<div class="form-group">
@@ -97,7 +97,7 @@
 							<tag:message text="Nº Paginas:" />
 						</form:label>
 						<form:input path="nPaginas" cssClass="" cssErrorClass="" />
-						<form:errors cssClass=""></form:errors>
+						<form:errors path="nPaginas" cssClass=""></form:errors>
 					</div>
 				</div>
 				<div class="form-group">

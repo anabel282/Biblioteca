@@ -88,7 +88,7 @@
 							<tag:message text="Nombre: " />
 						</form:label>
 						<form:input path="nombre" cssErrorClass="" cssClass="" />
-						<form:errors cssClass=""></form:errors>
+						<form:errors path="nombre" cssClass=""></form:errors>
 					</div>
 				</div>
 				<div class="form-group">
@@ -97,7 +97,7 @@
 							<tag:message text="Apellidos: " />
 						</form:label>
 						<form:input path="apellidos" cssClass="" cssErrorClass="" />
-						<form:errors cssClass=""></form:errors>
+						<form:errors path="apellidos" cssClass=""></form:errors>
 					</div>
 				</div>
 				<div class="form-group">
@@ -106,7 +106,7 @@
 							<tag:message text="Fecha nacimiento: " />
 						</form:label>
 						<form:input path="fNacimiento" placeholder="dd/MM/yyyy" cssClass="" cssErrorClass="" />
-						<form:errors cssClass=""></form:errors>
+						<form:errors path="fNacimiento" cssClass=""></form:errors>
 					</div>
 				</div>
 				<div class="form-group">
@@ -115,7 +115,7 @@
 							<tag:message text="Email: " />
 						</form:label>
 						<form:input path="email" cssClass="" cssErrorClass="" />
-						<form:errors cssClass=""></form:errors>
+						<form:errors path="email" cssClass=""></form:errors>
 					</div>
 				</div>
 				<div class="form-group">
@@ -124,7 +124,7 @@
 							<tag:message text="Pass: " />
 						</form:label>
 						<form:input path="pass" cssClass="" cssErrorClass="" />
-						<form:errors cssClass=""></form:errors>
+						<form:errors path="pass" cssClass=""></form:errors>
 					</div>
 				</div>
 				<div class="form-group">
