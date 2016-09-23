@@ -2,6 +2,7 @@ package com.ipartek.formacion.controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -28,7 +29,8 @@ public class EjemplarController {
   @Autowired
   private EjemplarService eService;
   private ModelAndView mav;
-
+  
+  @Autowired
   @Qualifier("EjemplarValidator")
   private Validator validator;
 

@@ -31,6 +31,7 @@ public class UsuarioController {
   private UsuarioService uService;
   private ModelAndView mav;
 
+  @Autowired
   @Qualifier("UsuarioValidator")
   private Validator validator;
 
