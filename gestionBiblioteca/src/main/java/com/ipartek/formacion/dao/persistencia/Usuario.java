@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Usuario {
 
-	private int codigo;
+	private int codUsuario;
 	private String nombre;
 	private String apellidos;
 	private Date fNacimiento;
@@ -15,7 +15,7 @@ public class Usuario {
 	public Usuario() {
 
 		this.setApellidos("");
-		this.setCodigo(-1);
+		this.setCodUsuario(0);
 		this.setEmail("");
 		this.setNombre("");
 		this.setPass("");
@@ -31,13 +31,15 @@ public class Usuario {
 	public void setIdEjemplar(int idEjemplar) {
 		this.idEjemplar = idEjemplar;
 	}
+	
+	
 
-	public int getCodigo() {
-		return codigo;
+	public int getCodUsuario() {
+		return codUsuario;
 	}
 
-	public void setCodigo(int codigo) {
-		this.codigo = codigo;
+	public void setCodUsuario(int codUsuario) {
+		this.codUsuario = codUsuario;
 	}
 
 	public String getNombre() {

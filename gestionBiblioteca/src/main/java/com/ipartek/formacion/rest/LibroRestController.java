@@ -36,7 +36,7 @@ public class LibroRestController {
   public ResponseEntity<Libro> getById(@PathVariable("id") int id) {
     ResponseEntity<Libro> respuesta = null;
     Libro libro = this.libroService.getById(id);
-    if (libro != null || libro.getCodigo() > 0) {
+    if (libro != null || libro.getCodLibro()> 0) {
       respuesta = new ResponseEntity<Libro>(libro, HttpStatus.OK);
       this.libroService.delete(id);
     } else {
@@ -61,7 +61,7 @@ public class LibroRestController {
   public ResponseEntity<Libro> create(@RequestBody Libro libro) {
 
     ResponseEntity<Libro> respuesta = null;
-    if (libroService.getById(libro.getCodigo()) != null) {
+    if (libroService.getById(libro.getCodLibro()) != null) {
       respuesta = new ResponseEntity<Libro>(HttpStatus.OK);
       libroService.create(libro);
     } else {

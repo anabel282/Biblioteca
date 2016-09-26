@@ -2,59 +2,33 @@ package com.ipartek.formacion.dao.persistencia;
 
 public class Ejemplar extends Libro {
 
-	private int codigo;
+	private int codEjemplar;
 	private String editorial;
 	private int nPaginas;
-	private int idLibro;
-	private int disponible;
-	private int nEjemplares;
+	private Usuario usuario;
 
-	public Ejemplar() {
+	public Ejemplar(Usuario usuario) {
 		super();
-		this.setCodigo(-1);
+		this.setCodEjemplar(-1);
 		this.setEditorial("");
 		this.setnPaginas(-1);
-		this.setIdLibro(-1);
-		this.setDisponible(0);
-		this.setnEjemplares(0);
+		this.setUsuario(usuario);
 	}
 
-	
-	
-	public int getnEjemplares() {
-		return nEjemplares;
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
-
-
-	public void setnEjemplares(int nEjemplares) {
-		this.nEjemplares = nEjemplares;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
-
-
-	public int getDisponible() {
-		return disponible;
+	public int getCodEjemplar() {
+		return codEjemplar;
 	}
 
-	public void setDisponible(int disponible) {
-		this.disponible = disponible;
-	}
-
-	public int getIdLibro() {
-		return idLibro;
-	}
-
-	public void setIdLibro(int idLibro) {
-		this.idLibro = idLibro;
-	}
-
-	public int getCodigo() {
-		return codigo;
-	}
-
-	public void setCodigo(int codigo) {
-		this.codigo = codigo;
+	public void setCodEjemplar(int codEjemplar) {
+		this.codEjemplar = codEjemplar;
 	}
 
 	public String getEditorial() {

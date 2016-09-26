@@ -39,7 +39,7 @@ public class UsuarioDAOImp implements UsuarioDAO {
   @Override
   public void delete(int id) {
 
-    String SQL = "DELETE FROM usuario WHERE codigo=?";
+    String SQL = "DELETE FROM usuario WHERE codUsuario=?";
     this.jdbcTemplate.update(SQL, new Object[] { id });
 
   }
@@ -47,16 +47,16 @@ public class UsuarioDAOImp implements UsuarioDAO {
   @Override
   public Usuario update(Usuario usuario) {
 
-    String SQL = "UPDATE usuario SET nombre=?, apellidos=?, fNacimiento=?, email=?, pass=? WHERE codigo=?";
+    String SQL = "UPDATE usuario SET nombre=?, apellidos=?, fNacimiento=?, email=?, pass=? WHERE codUsuario=?";
     this.jdbcTemplate.update(SQL, new Object[] { usuario.getNombre(), usuario.getApellidos(),
-        usuario.getfNacimiento(), usuario.getEmail(), usuario.getPass(), usuario.getCodigo() });
+        usuario.getfNacimiento(), usuario.getEmail(), usuario.getPass(), usuario.getCodUsuario() });
     return usuario;
   }
 
   @Override
   public Usuario getById(int id) {
 
-    String SQL = "SELECT codigo, nombre, apellidos, fNacimiento, email, pass FROM usuario WHERE codigo=? ";
+    String SQL = "SELECT codUsuario, nombre, apellidos, fNacimiento, email, pass FROM usuario WHERE codUsuario=? ";
     Usuario usuario = this.jdbcTemplate.queryForObject(SQL, new Object[] { id },
         new UsuarioMapper());
     return usuario;
@@ -65,7 +65,7 @@ public class UsuarioDAOImp implements UsuarioDAO {
   @Override
   public List<Usuario> getAll() {
 
-    String SQL = "SELECT codigo, nombre, apellidos, fNacimiento, email, pass FROM usuario";
+    String SQL = "SELECT codUsuario, nombre, apellidos, fNacimiento, email, pass FROM usuario";
     List<Usuario> usuarios = this.jdbcTemplate.query(SQL, new UsuarioMapper());
     return usuarios;
   }

@@ -3,6 +3,7 @@ package com.ipartek.formacion.service.interfaces;
 import java.util.List;
 
 import com.ipartek.formacion.dao.persistencia.Ejemplar;
+import com.ipartek.formacion.dao.persistencia.Libro;
 
 public interface EjemplarService {
 	
@@ -12,8 +13,8 @@ public interface EjemplarService {
 	
 	public Ejemplar update(Ejemplar ejemplar);
 	
-	public Ejemplar getById(int id);
+	public Libro getById(int id);
 	
-	public List<Ejemplar> getAll();
+	public List<Libro> getAll();
 
 }

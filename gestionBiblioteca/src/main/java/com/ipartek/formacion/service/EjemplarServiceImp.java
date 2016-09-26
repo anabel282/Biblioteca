@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.ipartek.formacion.dao.interfaces.EjemplarDAO;
 import com.ipartek.formacion.dao.persistencia.Ejemplar;
+import com.ipartek.formacion.dao.persistencia.Libro;
 import com.ipartek.formacion.service.interfaces.EjemplarService;
 
 @Service
@@ -36,13 +37,13 @@ public class EjemplarServiceImp implements EjemplarService{
 	}
 
 	@Override
-	public Ejemplar getById(int id) {
+	public Libro getById(int id) {
 
-		return this.eDao.getById(id);
+		return this.eDao.findLibro(id);
 	}
 
 	@Override
-	public List<Ejemplar> getAll() {
+	public List<Libro> getAll() {
 
 		return this.eDao.getAll();
 	}

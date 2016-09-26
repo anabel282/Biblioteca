@@ -12,6 +12,10 @@ import com.ipartek.formacion.dao.Mappers.LibroMapper;
 import com.ipartek.formacion.dao.interfaces.LibroDAO;
 import com.ipartek.formacion.dao.persistencia.Libro;
 
+/*
+ * Esta clase no se utiliza para nada, ya que libro siempre depende de ejemplar, seran los ejemplares los que mostremos, no los libros
+ */
+
 @Repository
 public class LibroDAOImp implements LibroDAO {
 
@@ -38,23 +42,23 @@ public class LibroDAOImp implements LibroDAO {
   @Override
   public void delete(int id) {
 
-    String SQL = "DELETE FROM libro WHERE codigo=?";
+    String SQL = "DELETE FROM libro WHERE codLibro=?";
     this.jdbcTemplate.update(SQL, new Object[] { id });
   }
 
   @Override
   public Libro update(Libro libro) {
 
-    String SQL = "UPDATE libro SET titulo=?, nombreApellidos=?, ISBN=? WHERE codigo=?";
+    String SQL = "UPDATE libro SET titulo=?, nombreApellidos=?, ISBN=? WHERE codLibro=?";
     this.jdbcTemplate.update(SQL, new Object[] { libro.getTitulo(), libro.getNombreApellidos(),
-        libro.getISBN(), libro.getCodigo() });
+        libro.getISBN(), libro.getCodLibro()});
     return libro;
   }
 
   @Override
   public Libro getById(int id) {
 
-    String SQL = "SELECT codigo, titulo, nombreApellidos, ISBN FROM libro WHERE codigo=?";
+    String SQL = "SELECT codLibro, titulo, nombreApellidos, ISBN FROM libro WHERE codLibro=?";
     Libro libro = this.jdbcTemplate.queryForObject(SQL, new Object[] { id }, new LibroMapper());
     return libro;
   }
@@ -62,7 +66,7 @@ public class LibroDAOImp implements LibroDAO {
   @Override
   public List<Libro> getAll() {
 
-    String SQL = "SELECT codigo, titulo, nombreApellidos, ISBN FROM libro";
+    String SQL = "SELECT codLibro, titulo, nombreApellidos, ISBN FROM libro";
     List<Libro> libros = this.jdbcTemplate.query(SQL, new LibroMapper());
     return libros;
   }

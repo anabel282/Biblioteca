@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +17,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ipartek.formacion.dao.persistencia.Libro;
 import com.ipartek.formacion.service.interfaces.LibroService;
+
+
 
 @Controller
 @RequestMapping("/libro")
@@ -64,7 +66,7 @@ public class LibroController {
       resultado = "libro/libro";
       // log.info("El libro esta dando un error al crearse");
     } else {
-      if (libro.getCodigo() > 0) {
+      if (libro.getCodLibro()> 0) {
         this.libroService.update(libro);
         resultado = "redirect:/libro/";
       } else {

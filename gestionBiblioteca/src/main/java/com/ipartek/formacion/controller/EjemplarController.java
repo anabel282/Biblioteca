@@ -49,6 +49,7 @@ public class EjemplarController {
     return "redirect:/ejemplar/";
   }
 
+  /*
   @RequestMapping(value = "/{id}", method = RequestMethod.GET)
   public ModelAndView getById(@PathVariable("id") int id) {
     this.mav = new ModelAndView("ejemplar/ejemplar");
@@ -63,12 +64,12 @@ public class EjemplarController {
     List<Ejemplar> ejemplars = this.eService.getAll();
     this.mav.addObject("ejemplares", ejemplars);
     return this.mav;
-  }
+  }*/
 
   @RequestMapping(value = "updateCreate", method = RequestMethod.GET)
   public String updateCreate(Model model) {
 
-    model.addAttribute(new Ejemplar());
+    //model.addAttribute(new Ejemplar());
     return "ejemplar/ejemplar";
   }
 
@@ -82,7 +83,7 @@ public class EjemplarController {
       resultado = "ejemplar/ejemplar";
       // log.info("Error al introducir el ejemplar");
     } else {
-      if (ejemplar.getCodigo() > 0) {
+      if (ejemplar.getCodEjemplar()> 0) {
         this.eService.update(ejemplar);
         resultado = "redirect:/ejemplar/";
       } else {

@@ -82,7 +82,7 @@ public class UsuarioController {
     if (bindingResult.hasErrors()) {
       resultado = "usuario/usuario";
     } else {
-      if (usuario.getCodigo() > 0) {
+      if (usuario.getCodUsuario()> 0) {
         resultado = "redirect:/usuario/";
         this.uService.update(usuario);
       } else {
