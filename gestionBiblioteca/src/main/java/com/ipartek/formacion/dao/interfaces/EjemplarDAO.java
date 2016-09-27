@@ -7,13 +7,13 @@ import com.ipartek.formacion.dao.persistencia.Libro;
 
 public interface EjemplarDAO extends SetterDS {
 
-  public Ejemplar create(Ejemplar ejemplar);
+	public Ejemplar create(Ejemplar ejemplar);
 
-  public void delete(int id);
+	public void delete(int id);
 
-  public Ejemplar update(Ejemplar ejemplar);
+	public Ejemplar update(Ejemplar ejemplar);
 
-  public Libro findLibro(int id);
+	public List<Libro> findLibro(Libro libro);
 
-  public List<Libro> getAll();
+	public List<Libro> getAll();
 }

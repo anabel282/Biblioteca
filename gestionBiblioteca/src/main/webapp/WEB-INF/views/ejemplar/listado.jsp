@@ -59,7 +59,7 @@
 	</div>
 
 
-	<main> 
+	<main>
 	<div class="row">
 		<div class="col-xs-12 col-ms-12 col-lg-12">
 			<a class="btn btn-success pull-right"
@@ -72,24 +72,35 @@
 				<div>
 					<div class="col-xs-8 col-lg-8 col-ms-8">
 						<p>
-							Editorial:
-							<c:out value="${ejemplar.editorial}" />
+							Titulo:
+							<c:out value="${ejemplar.titulo}" />
 						</p>
 						<p>
-							Nº Páginas:
-							<c:out value="${ejemplar.nPaginas}" />
+							Autor:
+							<c:out value="${ejemplar.nombreApellidos}" />
 						</p>
 						<p>
-							Disponibles:
-							<c:out value="${ejemplar.disponible}" />
+							ISBN:
+							<c:out value="${ejemplar.ISBN}" />
 						</p>
+						<h3>Ejemplares</h3>
+						<c:forEach var="ejemplar" items="${ejemplares.ejemplares}">
+							<p>
+								Editorial:
+								<c:out value="${ejemplares.ejemplares.editorial}" />
+							</p>
+							<p>
+								Nº Páginas:
+								<c:out value="${ejemplares.ejemplares.nPaginas}" />
+							</p>
+						</c:forEach>
 					</div>
 					<div class="col-xs-2 col-lg-2 col-ms-2">
-						<a class="btn btn-warning" href="${ejemplar.codigo}">Modificar
+						<a class="btn btn-warning" href="${ejemplar.codEjemplar}">Modificar
 							ejemplar</a>
 					</div>
 					<div class="col-xs-2 col-lg-2 col-ms-2">
-						<a class="btn btn-danger" href="delete/${ejemplar.codigo}">Borrar
+						<a class="btn btn-danger" href="delete/${ejemplar.codEjemplar}">Borrar
 							ejemplar</a>
 					</div>
 				</div>

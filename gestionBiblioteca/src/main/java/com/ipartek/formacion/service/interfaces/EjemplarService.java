@@ -13,7 +13,7 @@ public interface EjemplarService {
 	
 	public Ejemplar update(Ejemplar ejemplar);
 	
-	public Libro getById(int id);
+	public List<Libro> findLibro(Libro libro);
 	
 	public List<Libro> getAll();
 

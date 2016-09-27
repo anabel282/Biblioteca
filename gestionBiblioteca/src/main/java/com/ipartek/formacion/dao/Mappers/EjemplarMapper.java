@@ -16,7 +16,7 @@ public class EjemplarMapper implements RowMapper<Ejemplar>{
 
 		Usuario usuario = new Usuario();
 	    Ejemplar ejemplar = new Ejemplar(usuario);
-	    ejemplar.setCodEjemplar(rs.getInt("codigo"));
+	    ejemplar.setCodEjemplar(rs.getInt("codEjemplar"));
 	    ejemplar.setEditorial(rs.getString("editorial"));
 	    ejemplar.setnPaginas(rs.getInt("nPaginas"));
 	    return ejemplar;

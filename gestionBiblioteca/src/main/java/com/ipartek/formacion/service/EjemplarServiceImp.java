@@ -37,9 +37,9 @@ public class EjemplarServiceImp implements EjemplarService{
 	}
 
 	@Override
-	public Libro getById(int id) {
+	public List<Libro> findLibro(Libro libro) {
 
-		return this.eDao.findLibro(id);
+		return this.eDao.findLibro(libro);
 	}
 
 	@Override

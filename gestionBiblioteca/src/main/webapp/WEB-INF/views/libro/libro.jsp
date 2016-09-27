@@ -71,14 +71,14 @@
 		<div class="col-xs-12 col-ms-12 col-lg-12">
 			<form:form class="form-horizontal" action="saveLibro"
 				commandName="libro">
-				<c:if test="${libro.codigo > 0}">
+				<c:if test="${libro.codLibro > 0}">
 					<div class="form-group">
 						<div class="col-xs-12 col-ms-12 col-lg-12">
-							<form:label path="codigo">
-								<tag:message text="codigo" />
+							<form:label path="codLibro">
+								<tag:message text="codLibro" />
 							</form:label>
-							<form:input path="codigo" readonly="true" />
-							<form:hidden path="codigo" />
+							<form:input path="codLibro" readonly="true" />
+							<form:hidden path="codLibro" />
 						</div>
 					</div>
 				</c:if>
@@ -110,13 +110,13 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<c:if test="${libro.codigo > 0}">
+					<c:if test="${libro.codLibro > 0}">
 						<div class="col-xs-2 col-ms-2 col-lg-2">
 							<input class="btn btn-success" type="submit"
 								value='<tag:message text="Modificar ejemplar"/>'>
 						</div>
 					</c:if>
-					<c:if test="${libro.codigo < 0}">
+					<c:if test="${libro.codLibro < 0}">
 						<div class="col-xs-2 col-ms-2 col-lg-2">
 							<input class="btn btn-success" type="submit"
 								value='<tag:message text="Crear ejemplar"/>'>

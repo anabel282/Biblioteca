@@ -71,17 +71,44 @@
 		<div class="col-xs-12 col-ms-12 col-lg-12">
 			<form:form class="form-horizontal" action="saveEjemplar"
 				commandName="ejemplar">
-				<c:if test="${ejemplar.codigo > 0}">
+				<c:if test="${ejemplar.codEjemplar > 0}">
 					<div class="form-group">
 						<div class="col-xs-12 col-ms-12 col-lg-12">
-							<form:label path="codigo">
-								<tag:message text="codigo" />
+							<form:label path="codEjemplar">
+								<tag:message text="codEjemplar" />
 							</form:label>
-							<form:input path="codigo" readonly="true" />
-							<form:hidden path="codigo" />
+							<form:input path="codEjemplar" readonly="true" />
+							<form:hidden path="codEjemplar" />
 						</div>
 					</div>
 				</c:if>
+				<div class="form-group">
+					<div class="col-xs-12 col-ms-12 col-lg-12">
+						<form:label path="titulo">
+							<tag:message text="titulo: " />
+						</form:label>
+						<form:input path="titulo" cssErrorClass="" cssClass="" />
+						<form:errors path="titulo" cssClass=""></form:errors>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-xs-12 col-ms-12 col-lg-12">
+						<form:label path="nombreApellidos">
+							<tag:message text="nombreApellidos: " />
+						</form:label>
+						<form:input path="nombreApellidos" cssErrorClass="" cssClass="" />
+						<form:errors path="nombreApellidos" cssClass=""></form:errors>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-xs-12 col-ms-12 col-lg-12">
+						<form:label path="ISBN">
+							<tag:message text="ISBN: " />
+						</form:label>
+						<form:input path="ISBN" cssErrorClass="" cssClass="" />
+						<form:errors path="ISBN" cssClass=""></form:errors>
+					</div>
+				</div>
 				<div class="form-group">
 					<div class="col-xs-12 col-ms-12 col-lg-12">
 						<form:label path="editorial">
@@ -101,13 +128,13 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<c:if test="${ejemplar.codigo > 0}">
+					<c:if test="${ejemplar.codEjemplar > 0}">
 						<div class="col-xs-2 col-ms-2 col-lg-2">
 							<input class="btn btn-success" type="submit"
 								value='<tag:message text="Modificar ejemplar"/>'>
 						</div>
 					</c:if>
-					<c:if test="${ejemplar.codigo < 0}">
+					<c:if test="${ejemplar.codEjemplar < 0}">
 						<div class="col-xs-2 col-ms-2 col-lg-2">
 							<input class="btn btn-success" type="submit"
 								value='<tag:message text="Crear ejemplar"/>'>

@@ -86,11 +86,11 @@
 						</p>
 					</div>
 					<div class="col-xs-2 col-ms-2 col-lg-2">
-						<a class="btn btn-warning" href="${libro.codigo}">Modificar
+						<a class="btn btn-warning" href="${libro.codLibro}">Modificar
 							libro</a>
 					</div>
 					<div class="col-xs-2 col-ms-2 col-lg-2">
-						<a class="btn btn-danger" href="delete/${libro.codigo}">Borrar
+						<a class="btn btn-danger" href="delete/${libro.codLibro}">Borrar
 							libro</a>
 					</div>
 				</div>

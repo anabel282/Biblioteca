@@ -59,11 +59,12 @@ public class EjemplarDAOImp implements EjemplarDAO {
 	public void delete(int id) {
 
 		String SQL = "BORRAR EJEMPLAR";
-		
+
 		this.sJdbcCall.withProcedureName(SQL);
-		
-		SqlParameterSource sps = new MapSqlParameterSource().addValue("codEjemplar", id);
-		
+
+		SqlParameterSource sps = new MapSqlParameterSource().addValue(
+				"codEjemplar", id);
+
 		this.sJdbcCall.equals(sps);
 	}
 
@@ -86,12 +87,13 @@ public class EjemplarDAOImp implements EjemplarDAO {
 	}
 
 	@Override
-	public Ejemplar findLibro(int id) {
+	public List<Libro> findLibro(Libro libro) {
 
-		String SQL = "SELECT codEjemplar, editorial, nPaginas, idLibro, disponibles FROM ejemplar WHERE codEjemplar=?";
-		Ejemplar ejemplar = this.jdbcTemplate.queryForObject(SQL,
-				new Object[] { id }, new EjemplarMapper());
-		return ejemplar;
+		String SQL = "BUSCAR LIBRO(?,?)";
+		List<Libro> libros = this.jdbcTemplate.query(SQL,
+				new Object[] { libro.getISBN(), libro.getTitulo() },
+				new LibroExtractor());
+		return libros;
 	}
 
 	/**

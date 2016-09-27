@@ -3,6 +3,8 @@ package com.ipartek.formacion.controller;
 import java.util.List;
 
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -14,11 +16,13 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ipartek.formacion.dao.persistencia.Ejemplar;
+import com.ipartek.formacion.dao.persistencia.Libro;
 import com.ipartek.formacion.service.interfaces.EjemplarService;
 
 @Controller
@@ -49,22 +53,22 @@ public class EjemplarController {
     return "redirect:/ejemplar/";
   }
 
-  /*
+  
   @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-  public ModelAndView getById(@PathVariable("id") int id) {
+  public ModelAndView getById(@ModelAttribute("libro") Libro libro) {
     this.mav = new ModelAndView("ejemplar/ejemplar");
-    Ejemplar ejemplar = this.eService.getById(id);
-    this.mav.addObject("ejemplar", ejemplar);
+    List<Libro> libros = this.eService.findLibro(libro);
+    this.mav.addObject("ejemplar", libros);
     return this.mav;
   }
 
   @RequestMapping(method = RequestMethod.GET)
   public ModelAndView getAll() {
     this.mav = new ModelAndView("ejemplar/listado");
-    List<Ejemplar> ejemplars = this.eService.getAll();
-    this.mav.addObject("ejemplares", ejemplars);
+    List<Libro> libro = this.eService.getAll();
+    this.mav.addObject("ejemplares", libro);
     return this.mav;
-  }*/
+  }
 
   @RequestMapping(value = "updateCreate", method = RequestMethod.GET)
   public String updateCreate(Model model) {

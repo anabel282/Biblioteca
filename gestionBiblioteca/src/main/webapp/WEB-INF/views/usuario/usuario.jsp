@@ -71,14 +71,14 @@
 		<div class="col-xs-12 col-ms-12 col-lg-12">
 			<form:form class="form-horizontal" action="saveUsuario"
 				commandName="usuario">
-				<c:if test="${usuario.codigo > 0}">
+				<c:if test="${usuario.codUsuario > 0}">
 					<div class="form-group">
 						<div class="col-xs-12 col-ms-12 col-lg-12">
-							<form:label path="codigo">
-								<tag:message text="codigo" />
+							<form:label path="codUsuario">
+								<tag:message text="codUsuario" />
 							</form:label>
-							<form:input path="codigo" readonly="true" />
-							<form:hidden path="codigo" />
+							<form:input path="codUsuario" readonly="true" />
+							<form:hidden path="codUsuario" />
 						</div>
 					</div>
 				</c:if>
@@ -128,13 +128,13 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<c:if test="${usuario.codigo > 0}">
+					<c:if test="${usuario.codUsuario > 0}">
 						<div class="col-xs-2 col-ms-2 col-lg-2">
 							<input class="btn btn-success" type="submit"
 								value='<tag:message text="Modificar usuario"/>'>
 						</div>
 					</c:if>
-					<c:if test="${usuario.codigo < 0}">
+					<c:if test="${usuario.codUsuario < 0}">
 						<div class="col-xs-2 col-ms-2 col-lg-2">
 							<input class="btn btn-success" type="submit"
 								value='<tag:message text="Crear usuario"/>'>

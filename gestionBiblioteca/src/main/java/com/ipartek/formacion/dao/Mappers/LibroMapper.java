@@ -16,7 +16,7 @@ public class LibroMapper implements RowMapper<Libro> {
 	public Libro mapRow(ResultSet rs, int arg1) throws SQLException {
 
 		Libro libro = new Libro();
-		libro.setCodLibro(rs.getInt("codigo"));
+		libro.setCodLibro(rs.getInt("codLibro"));
 		libro.setISBN(rs.getString("ISBN"));
 		libro.setNombreApellidos(rs.getString("nombreApellidos"));
 		libro.setTitulo(rs.getString("titulo"));
